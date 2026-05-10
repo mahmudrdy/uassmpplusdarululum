@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal UAS SMPS Plus Darul Ulum 2026</title>
+    <meta name="description" content="Portal resmi Ujian Akhir Semester SMPS Plus Darul Ulum tahun 2026.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#10b981', // emerald-500
+                            secondary: '#3b82f6', // blue-500
+                            tertiary: '#8b5cf6', // violet-500
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .text-gradient {
+            background-image: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .bg-gradient-brand {
+            background-image: linear-gradient(to bottom right, #10b981, #3b82f6);
+        }
+        
+        /* Custom Animations */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+        
+        .card-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(255, 255, 255, 0.08),
+                transparent 40%
+            );
+            border-radius: inherit;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .group:hover .card-glow::before {
+            opacity: 1;
+        }
+
+        .animate-in {
+            animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-down {
+            animation: fadeDown 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-50 font-sans min-h-screen overflow-x-hidden relative selection:bg-brand selection:text-white">
+    
+    <!-- Animated background -->
+    <div class="fixed inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div class="blob -top-[10%] -left-[10%] w-[40vw] h-[40vw] bg-[radial-gradient(circle,theme(colors.brand.DEFAULT)_0%,transparent_70%)] delay-0"></div>
+        <div class="blob -bottom-[10%] -right-[10%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,theme(colors.brand.secondary)_0%,transparent_70%)] delay-[-2s]"></div>
+        <div class="blob top-[40%] left-[40%] w-[30vw] h-[30vw] bg-[radial-gradient(circle,theme(colors.brand.tertiary)_0%,transparent_70%)] delay-[-5s]"></div>
+    </div>
+
+    <main class="max-w-[1200px] mx-auto px-6 py-12 flex flex-col min-h-screen">
+        <!-- Header Section -->
+        <header class="text-center mb-10 animate-fade-down">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-brand rounded-2xl flex items-center justify-center text-4xl text-white shadow-[0_10px_25px_-5px_rgba(16,185,129,0.4)] -rotate-6 hover:rotate-0 hover:scale-105 transition-transform duration-300">
+                <i class="ph-fill ph-graduation-cap"></i>
+            </div>
+            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-2 text-gradient">Ujian Akhir Semester</h1>
+            <h2 class="font-heading text-xl md:text-2xl font-medium text-brand mb-4 tracking-wide">SMPS Plus Darul Ulum 2026</h2>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">Pilih mata pelajaran di bawah ini untuk memulai ujian.</p>
+        </header>
+
+        <!-- Subjects Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1" id="subjects-grid">
+            
+            <a href="https://forms.gle/PomFUfN23CPFqtqb8" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-globe-hemisphere-west"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">IPS</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/sP575hCz1T9qrHxb8" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-desktop"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">TIK</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/eL1DpLVgP3Pq7AkPA" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-flask"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">IPA</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/EYQieRvJd4gK4bUt8" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-palette"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">PRAKARYA</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/mcfZiTfQknK7gCTq6" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-translate"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">B. INGGRIS</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/krq8QE8DEooVzxhR8" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-calculator"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">MATEMATIKA</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/cJ5ARVPurMQo8ppF7" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-book-open-text"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">B. INDONESIA</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/CDTSoUpp61kLY7Jh7" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-chats"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">B. MADURA</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/pZYW5Kc4YF5HiJESA" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-scales"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">PKN</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/u4aPLXSQ7kNuLe7B9" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-book-bookmark"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">FIQIH</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/VY1S98UU49SxN7n47" target="_blank" rel="noopener noreferrer" class="card group flex items-center gap-5 p-6 rounded-2xl bg-slate-800/40 border border-white/10 backdrop-blur-md opacity-0 translate-y-5 transition-all duration-300 hover:bg-slate-800/70 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_-5px_rgba(16,185,129,0.2)] relative overflow-hidden card-glow">
+                <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-3xl text-brand transition-all duration-300 relative z-10 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-[5deg]">
+                    <i class="ph-duotone ph-hands-praying"></i>
+                </div>
+                <div class="flex-1 relative z-10">
+                    <h3 class="font-heading text-slate-50 text-lg font-semibold mb-1 transition-colors duration-300 group-hover:text-brand">AQOID</h3>
+                    <span class="text-slate-400 text-sm flex items-center gap-1.5 font-medium transition-colors duration-300 group-hover:text-slate-50">
+                        Mulai Ujian <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 pt-8 border-t border-white/10 text-slate-400 text-sm">
+            <p>&copy; 2026 SMPS Plus Darul Ulum. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
